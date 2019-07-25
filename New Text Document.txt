@@ -1,0 +1,79 @@
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+
+//namespace AdminPanel.Models.MyModels.DbModels
+//{
+//    public class Decleration
+//    {
+//        public int Id { get; set; }
+//        public string Country { get; set; }
+//        public int LinkCount { get; set; }
+//        public DateTime OrderDate { get; set; }
+//        public string OrderLocation { get; set; }
+//        public string OrderShopName { get; set; }
+//        public int TrackingCode { get; set; }
+//        public int OrderPrice { get; set; }
+//        public string InvoicePath { get; set; }
+//        public string Comment { get; set; }
+//        public int? UserCod { get; set; }
+
+//        public int OrderId { get; set; }
+//        public virtual Order Order { get; set; }
+
+//        public int? UserId { get; set; }
+//        public virtual User User { get; set; }
+
+//        public int CategoryId { get; set; }
+//        public virtual Category OrderCategory { get; set; }
+
+//        public int CurrencyId { get; set; }
+//        public virtual Currency Currency { get; set; }
+
+
+//    }
+//}
+-------------------------------------------------------------------------------------------------
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using AdminPanel.Context;
+//using AdminPanel.Models.MyModels.DbModels;
+//using Microsoft.AspNetCore.Mvc;
+
+//namespace AdminPanel.Controllers.MyController
+//{
+//    public class DeclerationsController : Controller
+//    {
+//        private readonly FinalContext _contex;
+
+//        public DeclerationsController(FinalContext contex)
+//        {
+//            _contex = contex;
+//        }
+       
+      
+//        public IActionResult Creat(Decleration decleration)
+//        {
+//            int? UserId = LoginController.SessionId;
+//            int? UserCod = LoginController.SessionUserCode;
+
+//            decleration.UserId = UserId;
+//            decleration.UserCod = UserCod;
+
+//            var order = _contex.Orders.FirstOrDefault(f => f.Id == decleration.OrderId && f.UserId == UserId);
+//            if (order == null)
+//            {
+//                return NotFound();
+//            }
+//            else
+//            {
+//                order.StatusId = 2002;
+//            }
+
+//            return RedirectToAction("Index","Orders");
+//        }
+//    }
+//}
